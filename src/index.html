@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Инвестиционный калькулятор для консервативной стратегии</title>
+
+    <meta name="description" content="Инвестиционный калькулятор" />
+  </head>
+  <body>
+    <header></header>
+    <nav></nav>
+    <main>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
+    </main>
+    <h1>Это заголовок</h1>
+    <script src="js/criteria.js"></script>
+    <script src="js/evaluate.js"></script>
+    <script>
+      const ctx = { securityType: "stock", goal: "growth", rate: 14 };
+      const criterion = criteria.find((c) => c.id === "pe");
+
+      matchesContext(criterion, ctx);
+    </script>
+  </body>
+</html>
