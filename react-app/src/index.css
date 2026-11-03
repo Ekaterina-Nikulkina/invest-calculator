@@ -1,0 +1,205 @@
+/* =========================================
+   ПЕРЕМЕННЫЕ ТЕМ
+   ========================================= */
+:root {
+  --bg-color: #f4f7f6;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --text-muted: #888888;
+  --border-color: #e0e0e0;
+  --input-bg: #ffffff;
+  --primary: #ffdd2d; /* Желтый Т-Банка */
+  --primary-hover: #f0d02a;
+  --border-radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --card-bg: #2d2d2d;
+  --text-color: #f0f0f0;
+  --text-muted: #a0a0a0;
+  --border-color: #444444;
+  --input-bg: #3d3d3d;
+  --primary: #ffdd2d;
+  --primary-hover: #f0d02a;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   БАЗОВЫЕ СТИЛИ
+   ========================================= */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 10px;
+}
+
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Сетка */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Карточки */
+.card {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+/* Группа полей */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* Поля ввода */
+input[type="number"],
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 15px;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s,
+    background-color 0.3s,
+    color 0.3s;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Радио-кнопки */
+.radio-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.radio-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+  background-color: var(--input-bg);
+}
+
+.radio-label input {
+  display: none;
+}
+
+/* Активная капсула */
+.radio-label.active {
+  border-color: var(--primary);
+  background-color: rgba(255, 221, 45, 0.1); /* Легкий желтый фон */
+}
+
+/* Кнопка */
+button.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--primary);
+  color: #333; /* Текст всегда темный, т.к. кнопка желтая */
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    opacity 0.2s;
+  margin-top: 10px;
+}
+
+button.btn-submit:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+button.btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Кнопка смены темы */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: var(--text-color);
+  z-index: 10;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .radio-group {
+    flex-direction: column;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}

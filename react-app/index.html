@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Инвестиционный калькулятор</title>
+    <script>
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+
+      const bgColor = savedTheme === "dark" ? "#1a1a1a" : "#f4f7f6";
+      const textColor = savedTheme === "dark" ? "#f0f0f0" : "#333333";
+      document.documentElement.style.backgroundColor = bgColor;
+      document.documentElement.style.color = textColor;
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

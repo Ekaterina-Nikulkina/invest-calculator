@@ -1,6 +1,5 @@
 "use strict";
-
-const criteria = require("./criteria");
+import criteria from "./criteria.js";
 
 /*
  * Проверяет, подходит ли критерий под текущий контекст.
@@ -74,7 +73,7 @@ function calcMetrics(metrics, ctx) {
     const rate = ctx.rate;
     if (price != null && divAnnual != null && rate != null) {
       const annualDividend = (price * divAnnual) / 100;
-      const targetedRate = (rate + 4) / 100;
+      const targetedRate = (rate + 1) / 100;
       enriched.fair_price = annualDividend / targetedRate;
     }
   }
@@ -157,10 +156,4 @@ function getVerdict(results, ctx) {
   return { verdict: "НЕ ПОКУПАТЬ", attention };
 }
 
-module.exports = {
-  matchesFields,
-  checkThreshold,
-  getStatus,
-  evaluate,
-  getVerdict,
-};
+export { matchesFields, checkThreshold, getStatus, evaluate, getVerdict };
