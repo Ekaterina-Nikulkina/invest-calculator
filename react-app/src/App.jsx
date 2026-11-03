@@ -281,6 +281,32 @@ function App() {
     setResultsArray([]);
   };
 
+  const resetForm = () => {
+    setFormData({
+      securityType: "stock",
+      goal: "dividend",
+      rate: 14,
+      price: "",
+      roe: "",
+      debt_ebitda: "",
+      dividend_policy: "",
+      dividend_profit: "",
+      dividend_annual: "",
+      payout_ratio: "",
+      pe: "",
+      eps: "",
+      net_profit: "",
+      ytm: "",
+      credit_rating: "",
+      duration: "",
+      bond_type: "",
+      industry: "other",
+      paperName: "",
+    });
+    setResult(null);
+    setResultsArray([]);
+  };
+
   const loadFromHistory = (item) => {
     setFormData(item.formData);
     setResult(null);
@@ -622,6 +648,22 @@ function App() {
           >
             Проверить бумагу
           </button>
+          <button
+            onClick={resetForm}
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginTop: "10px",
+              backgroundColor: "transparent",
+              color: "var(--text-muted)",
+              border: "none",
+              textDecoration: "underline",
+              cursor: "pointer",
+              fontSize: "14px",
+            }}
+          >
+            Сбросить форму
+          </button>
 
           <button
             onClick={() => fillExample(stockExample)}
@@ -841,6 +883,32 @@ function App() {
           </div>
         )}
       </div>
+      <footer
+        style={{
+          textAlign: "center",
+          marginTop: "40px",
+          paddingBottom: "20px",
+          color: "var(--text-muted)",
+          fontSize: "14px",
+        }}
+      >
+        <p>
+          © 2026 Инвестиционный калькулятор. Не является инвестиционной
+          рекомендацией.
+        </p>
+        <a
+          href="https://github.com/Ekaterina-Nikulkina/invest-calculator"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "var(--primary)",
+            textDecoration: "none",
+            fontWeight: "bold",
+          }}
+        >
+          Исходный код на GitHub
+        </a>
+      </footer>
     </div>
   );
 }
